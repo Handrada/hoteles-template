@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Kaoba | Visual Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Inter:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --jungle-deep: #0a0f0d;
+            --kaoba-gold: #b08d57;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--jungle-deep);
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--kaoba-gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        /* Efecto de Agrandar Imagen */
+        .img-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-container img {
+            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1), filter 0.8s ease;
+            filter: brightness(0.8);
+        }
+        .img-container:hover img {
+            transform: scale(1.15); /* Agrandar al acercar el cursor */
+            filter: brightness(1);
+        }
+
+        /* Líneas decorativas */
+        .line-accent {
+            width: 40px;
+            height: 1px;
+            background-color: var(--kaoba-gold);
+            margin: 1.5rem auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
+
+    <!-- Navegación Fija Minimalista -->
+    <nav class="fixed w-full z-50 p-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-2xl font-serif italic tracking-tighter text-white">CK.</div>
+        <div class="flex space-x-8 text-[10px] uppercase tracking-[0.4em] text-white">
+            <a href="#galeria" class="hover:text-amber-500 transition">Colección</a>
+            <a href="#espacios" class="hover:text-amber-500 transition">Espacios</a>
+            <a href="#contacto" class="hover:text-amber-500 transition">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=2000" 
+                 alt="Entrada de Casa Kaoba" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative z-10 text-center">
+            <h1 class="text-6xl md:text-[9rem] font-serif italic leading-none text-white">Casa Kaoba</h1>
+            <p class="text-[10px] uppercase tracking-[1em] text-stone-300 mt-4">Arquitectura Viva</p>
+        </div>
+    </section>
+
+    <!-- 1. Galería Principal (Impacto Visual Inmediato) -->
+    <section id="galeria" class="py-20 bg-black">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 px-2">
+            
+            <!-- Imagen 1 -->
+            <div class="img-container h-[400px] reveal">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Textura de piedra">
+                <div class="absolute bottom-4 left-4 text-[10px] uppercase tracking-widest opacity-0 hover:opacity-100 transition duration-500">Materia Prima</div>
+            </div>
+            
+            <!-- Imagen 2 -->
+            <div class="img-container h-[500px] -mt-10 reveal">
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Interior Lounge">
+                <div class="absolute bottom-4 left-4 text-[10px] uppercase tracking-widest">Santuario Interior</div>
+            </div>
+
+            <!-- Imagen 3 -->
+            <div class="img-container h-[400px] reveal">
+                <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Piscina Detail">
+                <div class="absolute bottom-4 left-4 text-[10px] uppercase tracking-widest">Reflejos</div>
+            </div>
+
+            <!-- Imagen 4 -->
+            <div class="img-container h-[600px] -mt-20 reveal">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Terraza">
+                <div class="absolute bottom-4 left-4 text-[10px] uppercase tracking-widest">Alturas</div>
+            </div>
+
+            <!-- Imagen 5 (Fila 2) -->
+            <div class="img-container h-[300px] reveal">
+                <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Vegetación">
+            </div>
+
+            <!-- Imagen 6 (Fila 2) -->
+            <div class="col-span-2 img-container h-[300px] reveal">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover" alt="Piscina Nocturna">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-white font-serif italic text-4xl">La Serenidad</span>
+                </div>
+            </div>
+
+            <!-- Imagen 7 (Fila 2) -->
+            <div class="img-container h-[300px] reveal">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Rooftop Atardecer">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Espacios Destacados (Formato Gran Angular) -->
+    <section id="espacios" class="py-10">
+        <div class="max-w-screen-2xl mx-auto px-4 space-y-24">
+            
+            <!-- Espacio 1 -->
+            <div class="reveal">
+                <div class="img-container h-[70vh] w-full">
+                    <img src="https://images.unsplash.com/photo-1613553474179-e1eda3ea5734?auto=format&fit=crop&q=80&w=1600" 
+                         class="w-full h-full object-cover" alt="Master Suite Visual">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-12">
+                        <div>
+                            <span class="text-amber-500 text-[10px] tracking-[0.4em] uppercase">Instalación 01</span>
+                            <h3 class="text-5xl font-serif italic text-white mt-2">Suites de Concreto & Selva</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espacio 2 -->
+            <div class="reveal">
+                <div class="img-container h-[70vh] w-full">
+                    <img src="https://images.unsplash.com/photo-1505577058444-a3dab90d4253?auto=format&fit=crop&q=80&w=1600" 
+                         class="w-full h-full object-cover" alt="Wellness Center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-12">
+                        <div class="text-left">
+                            <span class="text-amber-500 text-[10px] tracking-[0.4em] uppercase">Instalación 02</span>
+                            <h3 class="text-5xl font-serif italic text-white mt-2">Wellness & Ritual</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto" class="py-32 px-6 bg-[#050706] text-white relative">
+        <div class="max-w-screen-xl mx-auto text-center reveal">
+            <h2 class="text-6xl md:text-9xl font-serif italic mb-12">Vive Kaoba.</h2>
+            <div class="line-accent"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 text-[10px] uppercase tracking-[0.3em] text-stone-500">
+                <div>
+                    <p class="text-white mb-2">Ubicación</p>
+                    <p>Calle 38 Nte, Playa del Carmen</p>
+                </div>
+                <div>
+                    <p class="text-white mb-2">Reservas</p>
+                    <p>hola@casakaoba.com</p>
+                </div>
+                <div>
+                    <p class="text-white mb-2">Social</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="hover:text-amber-500 transition">Instagram</a>
+                        <a href="#" class="hover:text-amber-500 transition">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="mt-24 border border-stone-800 px-16 py-6 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition duration-500">
+                Consultar Disponibilidad
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Seguimiento del Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate3d(${e.clientX - 10}px, ${e.clientY - 10}px, 0)`;
+        });
+
+        // Efecto Reveal al Scroll
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
