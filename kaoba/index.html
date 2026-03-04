@@ -10,7 +10,7 @@
         :root {
             --jungle-deep: #0a0f0d;
             --kaoba-gold: #b08d57;
-            --kaoba-teal: #004d4d;
+            --kaoba-bronze: #8d704a;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -63,10 +63,17 @@
             margin: 1.5rem auto;
         }
 
-        /* Estilos para inputs de fecha */
+        /* Estilos para inputs de fecha personalizados */
         input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(0.5);
+            filter: invert(0.8) sepia(100%) saturate(200%) hue-rotate(10deg);
             cursor: pointer;
+        }
+        
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23b08d57'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5em 1.5em;
         }
     </style>
 </head>
@@ -181,57 +188,59 @@
         </div>
     </section>
 
-    <!-- 3. Sección de Reserva (Nueva basada en imagen) -->
-    <section id="reserva" class="py-24 px-6">
+    <!-- 3. Sección de Reserva (Integrada visualmente) -->
+    <section id="reserva" class="py-32 px-6">
         <div class="max-w-5xl mx-auto reveal">
-            <div class="bg-white rounded-[40px] overflow-hidden shadow-2xl flex flex-col md:flex-row text-stone-800">
-                <!-- Columna Izquierda: Mensaje -->
-                <div class="md:w-[45%] bg-[#004d4d] p-10 md:p-14 text-white flex flex-col justify-between">
+            <!-- Contenedor principal con bordes dorados sutiles y fondo oscuro -->
+            <div class="bg-[#0f1412] rounded-[20px] overflow-hidden border border-stone-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row text-white">
+                
+                <!-- Columna Izquierda: Mensaje Narrativo -->
+                <div class="md:w-[45%] bg-black/40 p-10 md:p-14 flex flex-col justify-between border-r border-stone-800/50">
                     <div>
-                        <h2 class="text-4xl md:text-5xl font-serif italic leading-tight mb-8">Tu historia en el Caribe comienza aquí</h2>
-                        <p class="text-sm font-light leading-relaxed opacity-90">
-                            Reserva directamente con nosotros y obtén un <span class="font-bold text-amber-500">15% de descuento adicional</span> usando el código <span class="font-bold text-amber-500 underline decoration-amber-500/30">NUEVOMAYA</span>.
+                        <h2 class="text-4xl md:text-5xl font-serif italic leading-tight mb-8">Tu historia en el Caribe.</h2>
+                        <p class="text-sm font-light leading-relaxed text-stone-400">
+                            Reserva directamente y obtén un <span class="text-amber-500 font-medium">15% de beneficio exclusivo</span> utilizando el código <span class="text-amber-500 border-b border-amber-500/30">NUEVOMAYA</span>.
                         </p>
                     </div>
                     
-                    <div class="mt-12 space-y-4 text-xs tracking-widest uppercase opacity-80 font-light">
+                    <div class="mt-12 space-y-4 text-[10px] tracking-[0.3em] uppercase text-stone-500 font-light">
                         <div class="flex items-center gap-4">
-                            <span>📞</span>
-                            <span>+52 984 555 1234</span>
+                            <span class="text-amber-600">LOC.</span>
+                            <span>Calle 38 Nte, Playa del Carmen</span>
                         </div>
                         <div class="flex items-center gap-4">
-                            <span>✉️</span>
+                            <span class="text-amber-600">MAIL.</span>
                             <span>reservas@casakaoba.com</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Formulario -->
-                <div class="md:w-[55%] p-10 md:p-14 bg-white">
-                    <form action="#" class="space-y-8">
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Check-in</label>
-                                <input type="date" class="w-full border-b border-stone-200 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent">
+                <!-- Columna Derecha: Formulario Minimalista -->
+                <div class="md:w-[55%] p-10 md:p-14">
+                    <form action="#" class="space-y-10">
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="space-y-2 group">
+                                <label class="text-[9px] uppercase tracking-[0.3em] text-amber-600/70 font-bold group-focus-within:text-amber-500 transition">Entrada</label>
+                                <input type="date" class="w-full border-b border-stone-800 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent text-stone-300">
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Check-out</label>
-                                <input type="date" class="w-full border-b border-stone-200 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent">
+                            <div class="space-y-2 group">
+                                <label class="text-[9px] uppercase tracking-[0.3em] text-amber-600/70 font-bold group-focus-within:text-amber-500 transition">Salida</label>
+                                <input type="date" class="w-full border-b border-stone-800 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent text-stone-300">
                             </div>
                         </div>
 
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Huéspedes</label>
-                            <select class="w-full border-b border-stone-200 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent appearance-none">
-                                <option>2 Adultos</option>
-                                <option>1 Adulto</option>
-                                <option>2 Adultos, 1 Niño</option>
-                                <option>Residencia Completa</option>
+                        <div class="space-y-2 group">
+                            <label class="text-[9px] uppercase tracking-[0.3em] text-amber-600/70 font-bold group-focus-within:text-amber-500 transition">Ocupación</label>
+                            <select class="w-full border-b border-stone-800 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent appearance-none text-stone-300">
+                                <option class="bg-stone-900">2 Adultos</option>
+                                <option class="bg-stone-900">1 Adulto</option>
+                                <option class="bg-stone-900">Suite Familiar</option>
+                                <option class="bg-stone-900">Residencia Privada</option>
                             </select>
                         </div>
 
                         <div class="pt-6">
-                            <button type="button" class="w-full bg-[#004d4d] text-white py-5 text-xs uppercase tracking-[0.3em] font-bold hover:bg-stone-900 transition-all duration-500 shadow-xl">
+                            <button type="button" class="w-full border border-amber-600/50 text-amber-500 py-6 text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-amber-600 hover:text-white transition-all duration-700">
                                 Consultar Disponibilidad
                             </button>
                         </div>
@@ -292,9 +301,12 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
