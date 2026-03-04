@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Maya Turquesa - Tu descanso en el corazón de Playa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        :root {
+            --color-turquesa: #005a63;
+            --color-dorado: #d4a017;
+            --color-arena: #f9f6f0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .text-turquesa { color: var(--color-turquesa); }
+        .bg-turquesa { background-color: var(--color-turquesa); }
+        .border-turquesa { border-color: var(--color-turquesa); }
+        .text-dorado { color: var(--color-dorado); }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--color-dorado);
+            transition: width .3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <!-- Área del Logo basada en la imagen -->
+                <div class="flex items-center space-x-3">
+                    <div class="logo-container">
+                        <!-- Reemplazar 'logo.png' con la ruta real de tu imagen -->
+                        <img src="https://via.placeholder.com/150x150?text=LOGO" alt="Hotel Maya Turquesa Logo" class="rounded-full border-2 border-turquesa p-1" onerror="this.src='https://ui-avatars.com/api/?name=Maya+Turquesa&background=005a63&color=fff'">
+                    </div>
+                    <div>
+                        <div class="flex items-center">
+                            <span class="text-xs italic text-turquesa font-bold mr-2 uppercase tracking-tighter" style="font-family: 'Playfair Display', serif;">Nuevo</span>
+                            <span class="text-xl font-serif font-bold text-gray-900 leading-none">MAYA TURQUESA</span>
+                        </div>
+                        <div class="flex text-[10px] text-dorado mt-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-gray-500 font-bold tracking-widest uppercase">Playa del Carmen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="nav-link font-medium text-turquesa">Inicio</a>
+                    <a href="#habitaciones" class="nav-link font-medium text-gray-600">Habitaciones</a>
+                    <a href="#servicios" class="nav-link font-medium text-gray-600">Servicios</a>
+                    <a href="#ubicacion" class="nav-link font-medium text-gray-600">Ubicación</a>
+                    <a href="#reservar" class="bg-turquesa text-white px-8 py-3 rounded-md hover:opacity-90 transition font-bold shadow-lg">RESERVAR</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-turquesa p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b px-4 py-4 space-y-2">
+            <a href="#inicio" class="block py-2 text-turquesa font-bold">Inicio</a>
+            <a href="#habitaciones" class="block py-2">Habitaciones</a>
+            <a href="#servicios" class="block py-2">Servicios</a>
+            <a href="#reservar" class="block py-2 text-dorado font-bold">Reservar ahora</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl bg-black/20 p-8 rounded-2xl backdrop-blur-[2px]">
+            <span class="inline-block border-2 border-dorado text-dorado px-4 py-1 rounded-full text-sm font-bold mb-6 tracking-widest uppercase italic">Apertura: Nuevo Hotel</span>
+            <h1 class="text-5xl md:text-7xl font-serif mb-6 drop-shadow-2xl">MAYA TURQUESA</h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-95 max-w-2xl mx-auto font-light">Elegancia caribeña y confort moderno en el corazón de Playa del Carmen.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#habitaciones" class="bg-white text-turquesa px-10 py-4 rounded-md font-bold hover:bg-gray-100 transition shadow-xl uppercase tracking-wider">Ver Suites</a>
+                <a href="#reservar" class="border-2 border-white text-white px-10 py-4 rounded-md font-bold hover:bg-white/10 transition uppercase tracking-wider">Ofertas de Apertura</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Highlight Section -->
+    <section class="py-16 bg-[#f9f6f0] border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <div class="w-24 h-1 bg-dorado mb-8"></div>
+            <p class="text-center font-serif text-2xl italic text-gray-700 max-w-3xl">"Ubicado estratégicamente para que vivas Playa del Carmen con el estilo y la comodidad que mereces."</p>
+            <div class="flex mt-6 text-dorado space-x-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habitaciones -->
+    <section id="habitaciones" class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-turquesa font-bold tracking-[0.3em] uppercase text-xs mb-4">Nuestras Experiencias</h2>
+                <h3 class="text-4xl font-serif text-gray-900">Suites Disponibles</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Suite Estándar -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Suite Turquesa" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-turquesa text-white px-3 py-1 text-xs font-bold rounded">MÁS POPULAR</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-serif mb-3">Suite Turquesa</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Confort esencial con toques de diseño regional y vista a la ciudad.</p>
+                        <div class="flex items-center justify-between border-t pt-6">
+                            <span class="text-turquesa font-bold text-2xl">$95 USD <small class="text-gray-400 font-normal text-sm">/noche</small></span>
+                            <a href="#reservar" class="text-dorado font-bold text-sm uppercase tracking-wider hover:underline">Reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doble -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Habitación Doble" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-serif mb-3">Doble Superior</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Dos camas matrimoniales, ideal para familias que buscan estar en el centro.</p>
+                        <div class="flex items-center justify-between border-t pt-6">
+                            <span class="text-turquesa font-bold text-2xl">$125 USD <small class="text-gray-400 font-normal text-sm">/noche</small></span>
+                            <a href="#reservar" class="text-dorado font-bold text-sm uppercase tracking-wider hover:underline">Reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Master Suite -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Master Suite" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-serif mb-3">Master Suite Maya</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Nuestra habitación más exclusiva con jacuzzi privado y detalles artesanales.</p>
+                        <div class="flex items-center justify-between border-t pt-6">
+                            <span class="text-turquesa font-bold text-2xl">$175 USD <small class="text-gray-400 font-normal text-sm">/noche</small></span>
+                            <a href="#reservar" class="text-dorado font-bold text-sm uppercase tracking-wider hover:underline">Reservar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Minimal -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border-2 border-turquesa flex items-center justify-center text-turquesa text-2xl mb-4 group hover:bg-turquesa hover:text-white transition duration-300">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">WiFi Premium</h5>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border-2 border-turquesa flex items-center justify-center text-turquesa text-2xl mb-4 group hover:bg-turquesa hover:text-white transition duration-300">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">Solárium</h5>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border-2 border-turquesa flex items-center justify-center text-turquesa text-2xl mb-4 group hover:bg-turquesa hover:text-white transition duration-300">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">Atención 24/7</h5>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border-2 border-turquesa flex items-center justify-center text-turquesa text-2xl mb-4 group hover:bg-turquesa hover:text-white transition duration-300">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">Parking Privado</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" class="py-24 bg-[#f9f6f0]">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2">
+                <span class="text-dorado font-bold uppercase tracking-widest text-xs mb-4 block">Ubicación</span>
+                <h3 class="text-4xl font-serif mb-8 text-turquesa">En el corazón de todo</h3>
+                <p class="text-gray-600 mb-8 leading-loose">Localizados en la zona centro de Playa del Carmen, Maya Turquesa te ofrece la ventaja de estar a solo unos pasos de la famosa Quinta Avenida, permitiéndote disfrutar de la mejor gastronomía y boutiques sin necesidad de transporte.</p>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-turquesa text-white p-3 rounded-full mr-4"><i class="fas fa-walking"></i></div>
+                        <div>
+                            <h6 class="font-bold">A 2 min de la 5ta Avenida</h6>
+                            <p class="text-sm text-gray-500">Tiendas, bares y restaurantes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-turquesa text-white p-3 rounded-full mr-4"><i class="fas fa-ship"></i></div>
+                        <div>
+                            <h6 class="font-bold">Cerca del Muelle Ferry</h6>
+                            <p class="text-sm text-gray-500">Cruza a Cozumel en minutos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 w-full h-[450px] bg-white p-2 rounded-3xl shadow-2xl relative overflow-hidden group">
+                 <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                    <div class="text-center">
+                        <i class="fas fa-location-arrow text-turquesa text-4xl mb-4 animate-bounce"></i>
+                        <p class="font-serif font-bold text-xl text-gray-800">MAYA TURQUESA</p>
+                        <p class="text-gray-500 px-10">Centro, Playa del Carmen, Quintana Roo</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservas -->
+    <section id="reservar" class="py-24 px-4 bg-white">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row bg-white rounded-[40px] shadow-2xl overflow-hidden border border-gray-100">
+            <div class="md:w-2/5 bg-turquesa p-12 text-white flex flex-col justify-between">
+                <div>
+                    <h3 class="text-3xl font-serif mb-6 italic">Tu historia en el Caribe comienza aquí</h3>
+                    <p class="text-white/80 leading-relaxed mb-8">Reserva directamente con nosotros y obtén un 15% de descuento adicional usando el código <span class="text-dorado font-bold">NUEVOMAYA</span>.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-4 text-dorado"></i>
+                        <span>+52 984 555 1234</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-4 text-dorado"></i>
+                        <span>reservas@mayaturquesa.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-3/5 p-12">
+                <form id="booking-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Check-In</label>
+                            <input type="date" class="w-full bg-gray-50 border-gray-200 border rounded-xl p-4 focus:ring-2 focus:ring-turquesa focus:border-transparent outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Check-Out</label>
+                            <input type="date" class="w-full bg-gray-50 border-gray-200 border rounded-xl p-4 focus:ring-2 focus:ring-turquesa focus:border-transparent outline-none transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Huéspedes</label>
+                        <select class="w-full bg-gray-50 border-gray-200 border rounded-xl p-4 focus:ring-2 focus:ring-turquesa outline-none transition">
+                            <option>1 Adulto</option>
+                            <option selected>2 Adultos</option>
+                            <option>2 Adultos, 1 Niño</option>
+                            <option>Grupo / Familia</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-turquesa text-white font-bold py-5 rounded-xl hover:opacity-95 transition shadow-lg text-lg tracking-widest uppercase">Consultar Disponibilidad</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-20 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-6">
+                    <img src="https://ui-avatars.com/api/?name=Maya+Turquesa&background=005a63&color=fff" class="w-10 h-10 rounded-full" alt="Mini Logo">
+                    <span class="text-white font-serif text-2xl uppercase tracking-tighter">Hotel Maya Turquesa</span>
+                </div>
+                <p class="mb-8 max-w-sm leading-loose">Hospitalidad auténtica en la Rivera Maya. Una estancia inolvidable te espera en el nuevo punto de referencia del centro de Playa.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-dorado transition text-2xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-dorado transition text-2xl"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#" class="hover:text-dorado transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-[0.2em]">Secciones</h5>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#habitaciones" class="hover:text-white transition">Habitaciones</a></li>
+                    <li><a href="#servicios" class="hover:text-white transition">Servicios</a></li>
+                    <li><a href="#ubicacion" class="hover:text-white transition">Ubicación</a></li>
+                    <li><a href="#" class="hover:text-white transition">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-[0.2em]">Oficina</h5>
+                <ul class="space-y-4 text-sm leading-relaxed">
+                    <li>Calle 10 Nte #123, Col. Centro<br>Playa del Carmen, MX.</li>
+                    <li>CP 77710</li>
+                    <li class="text-dorado font-bold pt-4 underline">info@mayaturquesa.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-gray-800 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest">
+            <p>&copy; 2024 Nuevo Hotel Maya Turquesa. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Simulación de envío de formulario mejorada
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formContainer = this.parentElement;
+            formContainer.innerHTML = `
+                <div class="text-center py-20 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-turquesa text-white rounded-full flex items-center justify-center text-4xl mb-6 shadow-xl animate-bounce">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 class="text-3xl font-serif mb-4 text-gray-900">¡Casi listo!</h3>
+                    <p class="text-gray-500 mb-8 max-w-xs mx-auto">Tu solicitud de reserva en el Hotel Maya Turquesa ha sido enviada. Te contactaremos en breve.</p>
+                    <button onclick="location.reload()" class="text-turquesa font-bold border-b-2 border-turquesa hover:text-dorado transition">REGRESAR AL SITIO</button>
+                </div>
+            `;
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARUMA SUITES | Hotel Minimalista & Spa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans y Playfair Display para el toque elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        .serif-italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        /* Animaciones personalizadas */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slow-zoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+        
+        .animate-fade-in-up {
+            animation: fade-in-up 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .animate-slow-zoom {
+            animation: slow-zoom 25s ease-in-out infinite alternate;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo para el Navbar cuando se hace scroll */
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            color: #1c1917;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-stone-900 overflow-x-hidden">
+
+    <!-- Navegación -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-8 px-6 text-white">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-light tracking-[0.3em] uppercase">
+                ARUMA SUITES<span class="font-bold text-stone-500">.</span>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <div class="hidden md:flex items-center space-x-10 text-[10px] uppercase tracking-[0.2em] font-medium">
+                <a href="#" class="hover:text-stone-400 transition-colors">Inicio</a>
+                <a href="#galeria" class="hover:text-stone-400 transition-colors">Galería</a>
+                <a href="#habitaciones" class="hover:text-stone-400 transition-colors">Habitaciones</a>
+                <a href="#servicios" class="hover:text-stone-400 transition-colors">Servicios</a>
+                <button id="nav-btn" class="px-6 py-2 border border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-stone-900 transition-all">Reservar</button>
+            </div>
+
+            <!-- Toggle Móvil -->
+            <button class="md:hidden" id="menu-toggle">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menú Móvil Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white hidden flex-col items-center justify-center space-y-8 text-xl uppercase tracking-widest">
+        <button id="menu-close" class="absolute top-8 right-8"><i data-lucide="x"></i></button>
+        <a href="#" class="mobile-link">Inicio</a>
+        <a href="#galeria" class="mobile-link">Galería</a>
+        <a href="#habitaciones" class="mobile-link">Habitaciones</a>
+        <a href="#servicios" class="mobile-link">Servicios</a>
+        <button class="px-8 py-3 bg-stone-900 text-white">Reservar Ahora</button>
+    </div>
+
+    <!-- Hero Section Visual -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=2000" 
+                class="w-full h-full object-cover animate-slow-zoom" 
+                alt="Vista principal del hotel"
+            >
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-6">
+            <span class="text-[10px] uppercase tracking-[0.5em] mb-4 block opacity-80">Bienvenidos a lo esencial</span>
+            <h1 class="text-6xl md:text-9xl font-extralight tracking-tighter mb-8 animate-fade-in-up">
+                Pureza <span class="serif-italic font-light">&</span> Calma
+            </h1>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mt-12 animate-fade-in-up" style="animation-delay: 0.3s">
+                <button class="bg-white text-stone-900 px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-stone-100 transition-all">
+                    Reserva tu estancia
+                </button>
+                <a href="#galeria" class="flex items-center justify-center gap-2 text-white px-10 py-4 border border-white/30 backdrop-blur-sm text-xs uppercase tracking-widest hover:bg-white/10 transition-all">
+                    Explorar Galería <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+            <i data-lucide="arrow-down" stroke-width="1"></i>
+        </div>
+    </header>
+
+    <!-- Galería "Bento" Grid -->
+    <section id="galeria" class="py-24 px-6 bg-white reveal">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-[10px] uppercase tracking-[0.5em] text-stone-400 block mb-4">La Experiencia Aura</span>
+                <h2 class="text-4xl md:text-5xl font-light tracking-tight">Donde cada detalle cuenta.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-4 h-auto md:h-[900px]">
+                <!-- Imagen 1 (Grande) -->
+                <div class="group relative overflow-hidden bg-stone-100 md:col-span-2 md:row-span-2">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200" alt="Arquitectura" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span class="text-white text-xs uppercase tracking-widest border border-white/50 px-4 py-2 backdrop-blur-sm">Arquitectura Exterior</span>
+                    </div>
+                </div>
+                <!-- Imagen 2 -->
+                <div class="group relative overflow-hidden bg-stone-100">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800" alt="Piscina" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span class="text-white text-xs uppercase tracking-widest border border-white/50 px-4 py-2 backdrop-blur-sm">Infinity Pool</span>
+                    </div>
+                </div>
+                <!-- Imagen 3 -->
+                <div class="group relative overflow-hidden bg-stone-100">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=800" alt="Spa" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span class="text-white text-xs uppercase tracking-widest border border-white/50 px-4 py-2 backdrop-blur-sm">Ritual de Spa</span>
+                    </div>
+                </div>
+                <!-- Imagen 4 -->
+                <div class="group relative overflow-hidden bg-stone-100 md:row-span-1">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800" alt="Gastronomía" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span class="text-white text-xs uppercase tracking-widest border border-white/50 px-4 py-2 backdrop-blur-sm">Desayuno Orgánico</span>
+                    </div>
+                </div>
+                <!-- Imagen 5 (Horizontal al fondo) -->
+                <div class="group relative overflow-hidden bg-stone-100 md:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200" alt="Suite" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span class="text-white text-xs uppercase tracking-widest border border-white/50 px-4 py-2 backdrop-blur-sm">Espacios de Descanso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofía -->
+    <section class="py-32 px-6 bg-stone-50 border-y border-stone-100 text-center reveal">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-light mb-10 leading-tight">
+                "El lujo no es la acumulación, sino la <span class="serif-italic text-stone-400">eliminación</span> de lo innecesario."
+            </h2>
+            <div class="h-12 w-[1px] bg-stone-300 mx-auto mb-10"></div>
+            <p class="text-stone-500 leading-relaxed font-light text-lg italic">
+                Aura nace de la necesidad de silencio. Situado frente a las aguas turquesas, nuestro refugio ha sido tallado con materiales locales para fundirse con el paisaje.
+            </p>
+        </div>
+    </section>
+
+    <!-- Habitaciones -->
+    <section id="habitaciones" class="py-24 px-6 bg-white reveal">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <span class="text-[10px] uppercase tracking-[0.5em] text-stone-400 block mb-2">Alojamiento</span>
+                    <h2 class="text-4xl font-light tracking-tight">Refugios Privados</h2>
+                </div>
+                <a href="#" class="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold group border-b border-stone-200 pb-1">
+                    Ver catálogo completo <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Suite 1 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-[500px] overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800" alt="Suite Terraza" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 w-full p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-t from-black/60 to-transparent">
+                            <button class="w-full py-3 bg-white text-stone-900 text-[10px] uppercase tracking-widest font-bold">Reservar desde $250</button>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-light mb-2">Suite Terraza</h3>
+                    <p class="text-stone-400 font-light text-sm">Vistas panorámicas al mar y diseño orgánico.</p>
+                </div>
+                <!-- Suite 2 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-[500px] overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=800" alt="Doble Minimal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 w-full p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-t from-black/60 to-transparent">
+                            <button class="w-full py-3 bg-white text-stone-900 text-[10px] uppercase tracking-widest font-bold">Reservar desde $180</button>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-light mb-2">Doble Minimal</h3>
+                    <p class="text-stone-400 font-light text-sm">Esencia japonesa con confort contemporáneo.</p>
+                </div>
+                <!-- Suite 3 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-[500px] overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800" alt="Villa Privada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 w-full p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-t from-black/60 to-transparent">
+                            <button class="w-full py-3 bg-white text-stone-900 text-[10px] uppercase tracking-widest font-bold">Reservar desde $450</button>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-light mb-2">Villa Privada</h3>
+                    <p class="text-stone-400 font-light text-sm">Piscina privada y máxima exclusividad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-white text-stone-900 pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-light tracking-[0.3em] uppercase mb-8 italic">
+                        Aura<span class="text-stone-400 not-italic">.</span>
+                    </div>
+                    <p class="text-stone-500 font-light max-w-sm leading-relaxed mb-10 italic">
+                        "Un lugar donde el alma encuentra su ritmo natural."
+                    </p>
+                    <div class="flex gap-6 text-stone-400">
+                        <a href="#" class="hover:text-stone-900 transition-colors"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="hover:text-stone-900 transition-colors"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="uppercase tracking-[0.2em] text-[10px] font-bold mb-8 text-stone-400">Navegación</h5>
+                    <ul class="space-y-4 text-sm font-light text-stone-600">
+                        <li><a href="#" class="hover:text-stone-900 transition-colors">Habitaciones</a></li>
+                        <li><a href="#" class="hover:text-stone-900 transition-colors">Gastronomía</a></li>
+                        <li><a href="#" class="hover:text-stone-900 transition-colors">Wellness & Spa</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="uppercase tracking-[0.2em] text-[10px] font-bold mb-8 text-stone-400">Contacto</h5>
+                    <p class="text-xs text-stone-500 mb-2 font-light italic">Ibiza, Islas Baleares</p>
+                    <p class="text-xs text-stone-500 mb-6 font-light">hello@hotel-aura.com</p>
+                    <div class="flex border-b border-stone-200 pb-2">
+                        <input type="email" placeholder="Tu email" class="bg-transparent border-none outline-none w-full text-sm">
+                        <button class="text-[10px] uppercase font-bold tracking-widest">Enviar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] uppercase tracking-[0.3em] text-stone-400">
+                <p>© 2024 Hotel Aruma Suites</p>
+                <div class="flex gap-10">
+                    <a href="#" class="hover:underline">Privacidad</a>
+                    <a href="#" class="hover:underline">Términos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar Iconos
+        lucide.createIcons();
+
+        // Control del Navbar en Scroll
+        const navbar = document.getElementById('navbar');
+        const navBtn = document.getElementById('nav-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('text-white');
+                navBtn.classList.add('border-stone-900', 'bg-stone-900', 'text-white');
+                navBtn.classList.remove('border-white/30', 'bg-white/10', 'text-white');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navbar.classList.add('text-white');
+                navBtn.classList.remove('border-stone-900', 'bg-stone-900', 'text-white');
+                navBtn.classList.add('border-white/30', 'bg-white/10', 'text-white');
+            }
+            
+            // Efecto de revelación en scroll
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
+
+        // Menú Móvil
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuClose = document.getElementById('menu-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+
+        menuClose.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+</html>
