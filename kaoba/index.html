@@ -10,6 +10,7 @@
         :root {
             --jungle-deep: #0a0f0d;
             --kaoba-gold: #b08d57;
+            --kaoba-teal: #004d4d;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -61,6 +62,12 @@
             background-color: var(--kaoba-gold);
             margin: 1.5rem auto;
         }
+
+        /* Estilos para inputs de fecha */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.5);
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +80,7 @@
         <div class="flex space-x-8 text-[10px] uppercase tracking-[0.4em] text-white">
             <a href="#galeria" class="hover:text-amber-500 transition">Colección</a>
             <a href="#espacios" class="hover:text-amber-500 transition">Espacios</a>
+            <a href="#reserva" class="hover:text-amber-500 transition">Reserva</a>
             <a href="#contacto" class="hover:text-amber-500 transition">Contacto</a>
         </div>
     </nav>
@@ -173,6 +181,66 @@
         </div>
     </section>
 
+    <!-- 3. Sección de Reserva (Nueva basada en imagen) -->
+    <section id="reserva" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="bg-white rounded-[40px] overflow-hidden shadow-2xl flex flex-col md:flex-row text-stone-800">
+                <!-- Columna Izquierda: Mensaje -->
+                <div class="md:w-[45%] bg-[#004d4d] p-10 md:p-14 text-white flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-serif italic leading-tight mb-8">Tu historia en el Caribe comienza aquí</h2>
+                        <p class="text-sm font-light leading-relaxed opacity-90">
+                            Reserva directamente con nosotros y obtén un <span class="font-bold text-amber-500">15% de descuento adicional</span> usando el código <span class="font-bold text-amber-500 underline decoration-amber-500/30">NUEVOMAYA</span>.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 space-y-4 text-xs tracking-widest uppercase opacity-80 font-light">
+                        <div class="flex items-center gap-4">
+                            <span>📞</span>
+                            <span>+52 984 555 1234</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span>✉️</span>
+                            <span>reservas@casakaoba.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Formulario -->
+                <div class="md:w-[55%] p-10 md:p-14 bg-white">
+                    <form action="#" class="space-y-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Check-in</label>
+                                <input type="date" class="w-full border-b border-stone-200 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Check-out</label>
+                                <input type="date" class="w-full border-b border-stone-200 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Huéspedes</label>
+                            <select class="w-full border-b border-stone-200 py-3 text-sm focus:outline-none focus:border-amber-600 transition bg-transparent appearance-none">
+                                <option>2 Adultos</option>
+                                <option>1 Adulto</option>
+                                <option>2 Adultos, 1 Niño</option>
+                                <option>Residencia Completa</option>
+                            </select>
+                        </div>
+
+                        <div class="pt-6">
+                            <button type="button" class="w-full bg-[#004d4d] text-white py-5 text-xs uppercase tracking-[0.3em] font-bold hover:bg-stone-900 transition-all duration-500 shadow-xl">
+                                Consultar Disponibilidad
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer / Contacto -->
     <footer id="contacto" class="py-32 px-6 bg-[#050706] text-white relative">
         <div class="max-w-screen-xl mx-auto text-center reveal">
@@ -197,9 +265,7 @@
                 </div>
             </div>
             
-            <button class="mt-24 border border-stone-800 px-16 py-6 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition duration-500">
-                Consultar Disponibilidad
-            </button>
+            <p class="mt-24 text-[10px] text-stone-700 tracking-[0.5em] uppercase">Casa Kaoba Residencias © 2024</p>
         </div>
     </footer>
 
