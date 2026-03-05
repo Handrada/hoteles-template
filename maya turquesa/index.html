@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Maya Turquesa - Tu descanso en el corazón de Playa</title>
     
+    <link rel="preload" as="image" href="img/hero-hotel.webp">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -33,7 +35,7 @@
 
         .hero-gradient {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
-                        url('img/hero-hotel.jpg'); 
+                        url('img/hero-hotel.webp'); 
             background-size: cover;
             background-position: center;
         }
@@ -50,7 +52,6 @@
             width: 100%;
         }
 
-        /* Efecto Glassmorphism para la Grid */
         .glass-tag {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
@@ -65,12 +66,12 @@
             <div class="flex justify-between h-24 items-center">
                 <div class="flex items-center space-x-3">
                     <div class="logo-container">
-                        <img src="img/logo.png" alt="Logo" class="h-16 w-auto rounded-full border-2 border-turquesa p-1" onerror="this.src='https://ui-avatars.com/api/?name=MT&background=005a63&color=fff'">
+                        <img src="img/logo.webp" alt="Logo" class="h-16 w-auto rounded-full border-2 border-turquesa p-1" fetchpriority="high" onerror="this.src='https://ui-avatars.com/api/?name=MT&background=005a63&color=fff'">
                     </div>
                     <div>
                         <div class="flex items-center">
                             <span class="text-xs italic text-turquesa font-bold mr-2 uppercase tracking-tighter font-serif">Nuevo</span>
-                            <span class="text-xl font-serif font-bold text-gray-900 leading-none">MAYA TURQUESA</span>
+                            <span class="text-xl font-serif font-bold text-gray-900 leading-none uppercase">Maya Turquesa</span>
                         </div>
                         <div class="flex text-[10px] text-dorado mt-1">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -121,57 +122,44 @@
                     <h2 class="text-turquesa font-bold tracking-[0.3em] uppercase text-xs mb-2">Explora</h2>
                     <h3 class="text-4xl font-serif text-gray-900">Nuestros Espacios</h3>
                 </div>
-                <p class="text-gray-500 max-w-md italic border-l-2 border-dorado pl-4">
-                    Cada rincón ha sido diseñado para equilibrar la tradición regional con el minimalismo contemporáneo.
+                <p class="text-gray-500 max-w-md italic border-l-2 border-dorado pl-4 text-sm">
+                    Inspirado en la Riviera Maya, cada espacio equilibra texturas naturales con lujo minimalista.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[650px]">
                 
                 <div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-[2rem] group cursor-pointer shadow-lg">
-                    <img src="img/galeria-1.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Alberca" onerror="this.src='https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=800'">
+                    <img src="img/galeria-1.webp" loading="lazy" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Alberca Maya Turquesa">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
                     <div class="absolute bottom-8 left-8 text-white">
                         <span class="glass-tag text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-bold">Exteriores</span>
-                        <h4 class="text-3xl font-serif mt-3">Área de Alberca & Solárium</h4>
+                        <h4 class="text-3xl font-serif mt-3">Alberca & Solárium</h4>
                     </div>
                 </div>
 
                 <div class="md:col-span-2 md:row-span-1 relative overflow-hidden rounded-[2rem] group cursor-pointer shadow-md">
-                    <img src="img/galeria-2.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Lobby" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800'">
+                    <img src="img/galeria-2.webp" loading="lazy" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Lobby Lounge">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                     <div class="absolute bottom-6 left-6 text-white">
-                        <h4 class="text-xl font-serif">Lobby Lounge</h4>
+                        <h4 class="text-xl font-serif uppercase tracking-wider">Lobby Lounge</h4>
                     </div>
                 </div>
 
                 <div class="md:col-span-1 md:row-span-1 relative overflow-hidden rounded-[2rem] group cursor-pointer shadow-md">
-                    <img src="img/galeria-3.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Detalle" onerror="this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=400'">
+                    <img src="img/galeria-3.webp" loading="lazy" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Detalles de diseño">
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
                 </div>
 
                 <div class="md:col-span-1 md:row-span-1 relative overflow-hidden rounded-[2rem] group cursor-pointer shadow-md">
-                    <img src="img/galeria-4.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Restaurante" onerror="this.src='https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=400'">
+                    <img src="img/galeria-4.webp" loading="lazy" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Restaurante">
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-[#f9f6f0] border-y border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
-            <div class="w-20 h-0.5 bg-dorado mb-10"></div>
-            <p class="text-center font-serif text-3xl italic text-gray-700 max-w-4xl leading-relaxed">
-                "Ubicado estratégicamente para que vivas Playa del Carmen con el estilo y la comodidad que mereces."
-            </p>
-            <div class="flex mt-8 text-dorado space-x-2 text-sm">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-        </div>
-    </section>
-
-    <section id="habitaciones" class="py-24 px-4">
+    <section id="habitaciones" class="py-24 px-4 bg-[#fcfbf9]">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-turquesa font-bold tracking-[0.3em] uppercase text-xs mb-4">Nuestras Experiencias</h2>
@@ -180,8 +168,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
                     <div class="relative h-72 overflow-hidden">
-                        <img src="img/suite-turquesa.jpg" alt="Suite Turquesa" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-turquesa text-white px-3 py-1 text-[10px] font-bold rounded-full tracking-tighter">MÁS POPULAR</div>
+                        <img src="img/suite-turquesa.webp" loading="lazy" alt="Suite Turquesa" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-turquesa text-white px-3 py-1 text-[10px] font-bold rounded-full tracking-tighter uppercase">Más popular</div>
                     </div>
                     <div class="p-8">
                         <h4 class="text-2xl font-serif mb-3">Suite Turquesa</h4>
@@ -195,7 +183,7 @@
 
                 <div class="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
                     <div class="h-72 overflow-hidden">
-                        <img src="img/doble-superior.jpg" alt="Habitación Doble" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <img src="img/doble-superior.webp" loading="lazy" alt="Habitación Doble" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     </div>
                     <div class="p-8">
                         <h4 class="text-2xl font-serif mb-3">Doble Superior</h4>
@@ -209,7 +197,7 @@
 
                 <div class="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
                     <div class="h-72 overflow-hidden">
-                        <img src="img/master-suite.jpg" alt="Master Suite" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <img src="img/master-suite.webp" loading="lazy" alt="Master Suite" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     </div>
                     <div class="p-8">
                         <h4 class="text-2xl font-serif mb-3">Master Suite Maya</h4>
@@ -224,37 +212,6 @@
         </div>
     </section>
 
-    <section id="servicios" class="py-24 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-                <div class="flex flex-col items-center group">
-                    <div class="w-20 h-20 rounded-2xl border-2 border-gray-100 flex items-center justify-center text-turquesa text-2xl mb-6 group-hover:bg-turquesa group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">WiFi Premium</h5>
-                </div>
-                <div class="flex flex-col items-center group">
-                    <div class="w-20 h-20 rounded-2xl border-2 border-gray-100 flex items-center justify-center text-turquesa text-2xl mb-6 group-hover:bg-turquesa group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">Solárium</h5>
-                </div>
-                <div class="flex flex-col items-center group">
-                    <div class="w-20 h-20 rounded-2xl border-2 border-gray-100 flex items-center justify-center text-turquesa text-2xl mb-6 group-hover:bg-turquesa group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">
-                        <i class="fas fa-concierge-bell"></i>
-                    </div>
-                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">Atención 24/7</h5>
-                </div>
-                <div class="flex flex-col items-center group">
-                    <div class="w-20 h-20 rounded-2xl border-2 border-gray-100 flex items-center justify-center text-turquesa text-2xl mb-6 group-hover:bg-turquesa group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">
-                        <i class="fas fa-parking"></i>
-                    </div>
-                    <h5 class="font-bold text-gray-900 uppercase tracking-tighter">Parking Privado</h5>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="ubicacion" class="py-24 bg-[#f9f6f0]">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
             <div class="md:w-1/2">
@@ -263,20 +220,20 @@
                 <p class="text-gray-600 mb-8 leading-loose">Localizados en la zona centro de Playa del Carmen, Maya Turquesa te ofrece la ventaja de estar a solo unos pasos de la famosa Quinta Avenida.</p>
                 <div class="space-y-6">
                     <div class="flex items-start">
-                        <div class="bg-turquesa text-white p-3 rounded-xl mr-4"><i class="fas fa-walking"></i></div>
+                        <div class="bg-turquesa text-white p-3 rounded-xl mr-4 shadow-md"><i class="fas fa-walking"></i></div>
                         <div><h6 class="font-bold">A 2 min de la 5ta Avenida</h6><p class="text-sm text-gray-500">Tiendas, bares y restaurantes.</p></div>
                     </div>
                     <div class="flex items-start">
-                        <div class="bg-turquesa text-white p-3 rounded-xl mr-4"><i class="fas fa-ship"></i></div>
+                        <div class="bg-turquesa text-white p-3 rounded-xl mr-4 shadow-md"><i class="fas fa-ship"></i></div>
                         <div><h6 class="font-bold">Cerca del Muelle Ferry</h6><p class="text-sm text-gray-500">Cruza a Cozumel en minutos.</p></div>
                     </div>
                 </div>
             </div>
             <div class="md:w-1/2 w-full h-[400px] bg-white p-2 rounded-[2.5rem] shadow-2xl relative overflow-hidden flex items-center justify-center text-center">
-                <div>
+                <div class="z-10">
                     <i class="fas fa-map-marker-alt text-turquesa text-4xl mb-4 animate-bounce"></i>
                     <p class="font-serif font-bold text-xl text-gray-800 uppercase">MAYA TURQUESA</p>
-                    <p class="text-gray-500 px-10">Calle 10 Nte, Centro, Playa del Carmen, Quintana Roo</p>
+                    <p class="text-gray-500 px-10 text-sm">Calle 10 Nte, Centro, Playa del Carmen, Quintana Roo</p>
                     <a href="https://maps.google.com" target="_blank" class="inline-block mt-6 text-dorado font-bold text-xs uppercase tracking-widest hover:underline">Abrir en Google Maps</a>
                 </div>
             </div>
@@ -290,7 +247,7 @@
                     <h3 class="text-3xl font-serif mb-6 italic leading-snug">Tu historia en el Caribe comienza aquí</h3>
                     <p class="text-white/80 leading-relaxed mb-8 text-sm">Reserva directamente y obtén un 15% de descuento con el código <span class="text-dorado font-bold">NUEVOMAYA</span>.</p>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-4 text-sm">
                     <div class="flex items-center"><i class="fas fa-phone-alt mr-4 text-dorado"></i><span>+52 984 555 1234</span></div>
                     <div class="flex items-center"><i class="fas fa-envelope mr-4 text-dorado"></i><span>reservas@mayaturquesa.com</span></div>
                 </div>
@@ -300,11 +257,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Check-In</label>
-                            <input type="date" class="w-full bg-gray-50 border-gray-200 border rounded-2xl p-4 focus:ring-2 focus:ring-turquesa outline-none">
+                            <input type="date" class="w-full bg-gray-50 border-gray-200 border rounded-2xl p-4 focus:ring-2 focus:ring-turquesa outline-none text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Check-Out</label>
-                            <input type="date" class="w-full bg-gray-50 border-gray-200 border rounded-2xl p-4 focus:ring-2 focus:ring-turquesa outline-none">
+                            <input type="date" class="w-full bg-gray-50 border-gray-200 border rounded-2xl p-4 focus:ring-2 focus:ring-turquesa outline-none text-sm">
                         </div>
                     </div>
                     <button type="submit" class="w-full bg-turquesa text-white font-bold py-5 rounded-2xl hover:opacity-95 transition shadow-lg text-lg uppercase tracking-widest">Consultar Disponibilidad</button>
@@ -317,19 +274,18 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-6">
-                    <img src="img/logo-footer.png" class="w-10 h-10 rounded-full" alt="Mini Logo" onerror="this.src='https://ui-avatars.com/api/?name=MT&background=005a63&color=fff'">
+                    <img src="img/logo.webp" loading="lazy" class="w-10 h-10 rounded-full" alt="Mini Logo">
                     <span class="text-white font-serif text-2xl uppercase tracking-tighter">Hotel Maya Turquesa</span>
                 </div>
-                <p class="mb-8 max-w-sm leading-loose">Hospitalidad auténtica en la Rivera Maya. Una estancia inolvidable te espera en el corazón de Playa.</p>
+                <p class="mb-8 max-w-sm leading-loose text-sm">Hospitalidad auténtica en la Rivera Maya. Una estancia inolvidable te espera en el corazón de Playa.</p>
                 <div class="flex space-x-6">
                     <a href="#" class="hover:text-dorado transition text-2xl"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="hover:text-dorado transition text-2xl"><i class="fab fa-facebook-square"></i></a>
                 </div>
             </div>
             <div>
-                <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-[0.2em]">Mapa del sitio</h5>
+                <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-[0.2em]">Sitio</h5>
                 <ul class="space-y-4 text-sm">
-                    <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
                     <li><a href="#habitaciones" class="hover:text-white transition">Habitaciones</a></li>
                     <li><a href="#galeria" class="hover:text-white transition">Galería</a></li>
                     <li><a href="#ubicacion" class="hover:text-white transition">Ubicación</a></li>
@@ -339,12 +295,12 @@
                 <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-[0.2em]">Contacto</h5>
                 <ul class="space-y-4 text-sm leading-relaxed">
                     <li>Calle 10 Nte #123, Centro, Playa del Carmen, MX.</li>
-                    <li class="text-dorado font-bold pt-4 underline">info@mayaturquesa.com</li>
+                    <li class="text-dorado font-bold pt-4 underline font-serif">info@mayaturquesa.com</li>
                 </ul>
             </div>
         </div>
         <div class="max-w-7xl mx-auto border-t border-gray-800 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest">
-            <p>&copy; 2026 Nuevo Hotel Maya Turquesa. Todos los derechos reservados.</p>
+            <p>© 2026 Nuevo Hotel Maya Turquesa.</p>
             <div class="flex space-x-6 mt-4 md:mt-0"><a href="#">Privacidad</a><a href="#">Términos</a></div>
         </div>
     </footer>
@@ -355,7 +311,7 @@
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-        // Formulario
+        // Formulario Simple
         document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
             this.parentElement.innerHTML = `
