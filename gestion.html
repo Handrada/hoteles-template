@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Operativa | Dashboard Corporativo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .sidebar-link.active { background: #1c1917; color: white; border-left: 4px solid #d4a017; }
+        .sidebar-link { transition: all 0.3s ease; border-left: 4px solid transparent; }
+        iframe { transition: opacity 0.3s ease; }
+    </style>
+</head>
+<body class="bg-stone-100 flex h-screen overflow-hidden">
+
+    <aside class="w-72 bg-stone-950 text-stone-400 flex flex-col justify-between p-8 shadow-2xl">
+        <div>
+            <div class="mb-10">
+                <h2 id="hotelName" class="serif text-2xl text-white mb-1 tracking-tight italic">Hotel</h2>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-[9px] uppercase tracking-[0.3em] text-stone-500 font-bold">Terminal Activa</span>
+                </div>
+            </div>
+            
+            <nav class="space-y-1">
+                <p class="text-[9px] uppercase tracking-widest text-stone-600 font-bold ml-4 mb-3 mt-6">Análisis Estratégico</p>
+                
+                <button onclick="switchTab('dashboard', this)" class="sidebar-link active w-full text-left py-3 px-4 rounded-r-lg text-sm flex items-center gap-3">
+                    <i class="fas fa-chart-pie w-5 text-stone-500"></i> Reportes Looker
+                </button>
+
+                <button onclick="switchTab('innalytics', this)" class="sidebar-link w-full text-left py-3 px-4 rounded-r-lg text-sm flex items-center gap-3">
+                    <i class="fas fa-chart-line w-5 text-stone-500"></i> PMS Innalytics
+                </button>
+
+                <p class="text-[9px] uppercase tracking-widest text-stone-600 font-bold ml-4 mt-8 mb-3">Control Financiero</p>
+                <button onclick="switchTab('pagos', this)" class="sidebar-link w-full text-left py-3 px-4 rounded-r-lg text-sm flex items-center gap-3">
+                    <i class="fas fa-wallet w-5 text-stone-500"></i> Pagos y Servicios
+                </button>
+
+                <p class="text-[9px] uppercase tracking-widest text-stone-600 font-bold ml-4 mt-8 mb-3">Operaciones y Activos</p>
+                <button onclick="switchTab('activos', this)" class="sidebar-link w-full text-left py-3 px-4 rounded-r-lg text-sm flex items-center gap-3">
+                    <i class="fas fa-boxes-stacked w-5 text-stone-500"></i> Inventario Activos
+                </button>
+                <button onclick="switchTab('mantenimiento', this)" class="sidebar-link w-full text-left py-3 px-4 rounded-r-lg text-sm flex items-center gap-3">
+                    <i class="fas fa-tools w-5 text-stone-500"></i> Mantenimiento
+                </button>
+                <button onclick="switchTab('camaras', this)" class="sidebar-link w-full text-left py-3 px-4 rounded-r-lg text-sm flex items-center gap-3">
+                    <i class="fas fa-video w-5 text-stone-500"></i> Cámaras DVR
+                </button>
+            </nav>
+        </div>
+
+        <div class="space-y-4 pt-6 border-t border-stone-900">
+            <a id="webLink" href="#" target="_blank" class="w-full bg-stone-100 text-stone-900 py-3 px-4 rounded-lg text-[10px] font-bold text-center block hover:bg-white transition uppercase tracking-widest">
+                Abrir Web Pública
+            </a>
+            <a href="index.html" class="w-full text-[10px] text-center block hover:text-white transition uppercase tracking-[0.2em] text-stone-600 font-bold">
+                <i class="fas fa-chevron-left mr-2 text-[8px]"></i> Panel General
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0">
+        <header class="h-20 bg-white border-b border-stone-200 flex items-center px-10 justify-between shadow-sm z-10">
+            <div>
+                <span id="breadcrumb" class="text-[9px] uppercase tracking-widest text-stone-400 font-bold">Iniciando...</span>
+                <h1 id="tabTitle" class="serif text-xl text-stone-800 uppercase tracking-tight">Cargando Panel</h1>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="text-right border-r border-stone-200 pr-6 hidden md:block">
+                    <p class="text-[10px] font-bold text-stone-800 uppercase tracking-widest">Horacio Andrada</p>
+                    <p class="text-[9px] text-stone-400 font-medium">Chief Technology Officer</p>
+                </div>
+                <button onclick="location.reload()" class="w-10 h-10 flex items-center justify-center rounded-full bg-stone-50 text-stone-400 hover:text-stone-900 hover:bg-stone-100 transition shadow-inner">
+                    <i class="fas fa-sync-alt text-xs"></i>
+                </button>
+            </div>
+        </header>
+
+        <section class="flex-1 bg-stone-100 p-8 relative">
+            <div class="w-full h-full bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden relative">
+                <div id="loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white z-50 transition-opacity duration-300">
+                    <div class="w-12 h-12 border-4 border-stone-100 border-t-stone-900 rounded-full animate-spin mb-4"></div>
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-stone-400 font-bold">Sincronizando Datos</p>
+                </div>
+                <iframe id="mainFrame" src="about:blank" class="w-full h-full border-0 relative z-10 opacity-0 transition-opacity duration-500" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // CONFIGURACIÓN DE RUTAS Y DATOS
+        const config = {
+            'Aruma': {
+                looker: 'https://lookerstudio.google.com/embed/reporting/tu-id-aruma',
+                web: 'aruma/index.html'
+            },
+            'Kaoba': {
+                looker: 'https://lookerstudio.google.com/embed/reporting/1765d56f-a8cc-43e6-b0f3-33ef83580021/page/p_v5acdg810d',
+                web: 'kaoba/index.html'
+            },
+            'Maya Turquesa': {
+                looker: 'https://lookerstudio.google.com/embed/reporting/tu-id-maya',
+                web: 'maya%20turquesa/index.html'
+            },
+            'Copal': {
+                looker: 'https://lookerstudio.google.com/embed/reporting/tu-id-copal',
+                web: 'copal/index.html'
+            }
+        };
+
+        // LÓGICA DE URL PARAMS
+        const params = new URLSearchParams(window.location.search);
+        const currentHotel = params.get('hotel') || 'Aruma';
+        const hotelData = config[currentHotel] || config['Aruma'];
+
+        // ELEMENTOS DOM
+        const frame = document.getElementById('mainFrame');
+        const loader = document.getElementById('loader');
+        const tabTitle = document.getElementById('tabTitle');
+        const breadcrumb = document.getElementById('breadcrumb');
+
+        // INICIALIZACIÓN
+        document.title = `${currentHotel} | Gestión Operativa`;
+        document.getElementById('hotelName').innerText = currentHotel;
+        document.getElementById('webLink').href = hotelData.web;
+        
+        // Carga Inicial (Looker)
+        switchTab('dashboard', document.querySelector('.sidebar-link.active'));
+
+        // FUNCIÓN DE NAVEGACIÓN
+        function switchTab(tab, element) {
+            // Estética Sidebar
+            document.querySelectorAll('.sidebar-link').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            // Reset de Opacidad para Efecto de Carga
+            frame.classList.add('opacity-0');
+            loader.classList.remove('hidden', 'opacity-0');
+
+            // Lógica de Contenido
+            let targetUrl = '';
+            
+            switch(tab) {
+                case 'dashboard':
+                    targetUrl = hotelData.looker;
+                    tabTitle.innerText = 'Reportes Looker Studio';
+                    breadcrumb.innerText = `${currentHotel} / Análisis Estratégico`;
+                    break;
+                
+                // NUEVO: Caso para Innalytics
+                case 'innalytics':
+                    targetUrl = 'https://live.ipms247.com/innalytics/innalytics';
+                    tabTitle.innerText = 'Dashboard Innalytics';
+                    breadcrumb.innerText = `${currentHotel} / Análisis Estratégico`;
+                    break;
+
+                case 'pagos':
+                    targetUrl = `pagos.php?hotel=${encodeURIComponent(currentHotel)}`;
+                    tabTitle.innerText = 'Semáforo de Cumplimiento';
+                    breadcrumb.innerText = `${currentHotel} / Control Financiero`;
+                    break;
+                case 'activos':
+                    targetUrl = `activos.php?hotel=${encodeURIComponent(currentHotel)}`;
+                    tabTitle.innerText = 'Inventario de Activos Fijos';
+                    breadcrumb.innerText = `${currentHotel} / Control de Activos`;
+                    break;
+                case 'mantenimiento':
+                    targetUrl = `mantenimiento.php?hotel=${encodeURIComponent(currentHotel)}`;
+                    tabTitle.innerText = 'Gestión de Incidencias';
+                    breadcrumb.innerText = `${currentHotel} / Operaciones`;
+                    break;
+                case 'camaras':
+                    // Aquí podrías poner el link del P2P o IP si lo tienes
+                    targetUrl = 'about:blank'; 
+                    tabTitle.innerText = 'Monitoreo de Cámaras';
+                    breadcrumb.innerText = `${currentHotel} / Seguridad`;
+                    alert("Configure el link del DVR en el archivo gestion.html");
+                    break;
+                default:
+                    targetUrl = hotelData.looker;
+            }
+
+            frame.src = targetUrl;
+
+            // Manejo del Loader
+            frame.onload = () => {
+                loader.classList.add('opacity-0');
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                    frame.classList.remove('opacity-0');
+                }, 300);
+            };
+        }
+    </script>
+</body>
+</html>
