@@ -19,36 +19,12 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         .nav-scrolled { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); padding-top: 1rem; padding-bottom: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); color: #1c1917; }
         
-        /* Estilo extra para el botón de WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 100;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
-        }
+        /* Efecto de zoom suave para todas las imágenes */
+        .img-container img { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .img-container:hover img { transform: scale(1.07); }
     </style>
 </head>
 <body class="bg-neutral-50 text-stone-900 overflow-x-hidden">
-
-    <a href="https://wa.me/5492426280999" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
-        <i data-lucide="message-circle" class="w-8 h-8"></i>
-    </a>
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-8 px-6 text-white">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -56,11 +32,11 @@
                 ARUMA SUITES<span class="font-bold text-stone-500">.</span>
             </div>
             <div class="hidden md:flex items-center space-x-10 text-[10px] uppercase tracking-[0.2em] font-medium">
-                <a href="#" class="hover:text-stone-400 transition-colors">Inicio</a>
-                <a href="#galeria" class="hover:text-stone-400 transition-colors">Galería</a>
-                <a href="#servicios" class="hover:text-stone-400 transition-colors">Servicios</a>
-                <a href="#habitaciones" class="hover:text-stone-400 transition-colors">Habitaciones</a>
-                <button id="nav-btn" class="px-6 py-2 border border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-stone-900 transition-all">Reservar</button>
+                <a href="#" class="hover:text-stone-400">Inicio</a>
+                <a href="#galeria" class="hover:text-stone-400">Galería</a>
+                <a href="#servicios" class="hover:text-stone-400">Servicios</a>
+                <a href="#habitaciones" class="hover:text-stone-400">Habitaciones</a>
+                <button class="px-6 py-2 border border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white hover:text-stone-900 transition-all">Reservar</button>
             </div>
             <button class="md:hidden" id="menu-toggle"><i data-lucide="menu"></i></button>
         </div>
@@ -72,7 +48,6 @@
         <a href="#galeria" class="mobile-link">Galería</a>
         <a href="#servicios" class="mobile-link">Servicios</a>
         <a href="#habitaciones" class="mobile-link">Habitaciones</a>
-        <button class="px-8 py-3 bg-stone-900 text-white text-sm">Reservar Ahora</button>
     </div>
 
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
@@ -83,119 +58,70 @@
         <div class="relative z-10 text-center text-white px-6">
             <span class="text-[10px] uppercase tracking-[0.5em] mb-4 block opacity-80">Bienvenidos a lo esencial</span>
             <h1 class="text-6xl md:text-9xl font-extralight tracking-tighter mb-8 animate-fade-in-up">Pureza <span class="serif-italic font-light">&</span> Calma</h1>
-            <div class="flex flex-col md:flex-row justify-center gap-6 mt-12 animate-fade-in-up" style="animation-delay: 0.3s">
-                <button class="bg-white text-stone-900 px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-stone-100 transition-all">Reserva tu estancia</button>
-            </div>
         </div>
     </header>
 
     <section id="galeria" class="pt-20 pb-10 px-6 bg-white reveal">
-        <div class="max-w-7xl mx-auto text-center mb-12">
-            <span class="text-[10px] uppercase tracking-[0.5em] text-stone-400 block mb-2">Inspiración</span>
-            <h2 class="text-3xl font-light tracking-tight">Galería Visual</h2>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-4 h-auto md:h-[750px]">
+            <div class="img-container relative overflow-hidden md:col-span-2 md:row-span-2">
+                <img src="img/2.webp" loading="lazy" class="w-full h-full object-cover">
+            </div>
+            <div class="img-container relative overflow-hidden"><img src="img/3.webp" loading="lazy" class="w-full h-full object-cover"></div>
+            <div class="img-container relative overflow-hidden"><img src="img/4.webp" loading="lazy" class="w-full h-full object-cover"></div>
+            <div class="img-container relative overflow-hidden"><img src="img/5.webp" loading="lazy" class="w-full h-full object-cover"></div>
+            <div class="img-container relative overflow-hidden md:col-span-2"><img src="img/6.webp" loading="lazy" class="w-full h-full object-cover"></div>
         </div>
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-4 h-auto md:h-[800px]">
-                <div class="group relative overflow-hidden md:col-span-2 md:row-span-2">
-                    <img src="img/2.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <span class="text-white text-[10px] uppercase tracking-[0.2em] border border-white/50 px-4 py-2">Ver Detalles</span>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden">
-                    <img src="img/3.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                </div>
-                <div class="group relative overflow-hidden">
-                    <img src="img/4.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                </div>
-                <div class="group relative overflow-hidden">
-                    <img src="img/5.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                </div>
-                <div class="group relative overflow-hidden md:col-span-2">
-                    <img src="img/6.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                </div>
+    </section>
+
+    <section id="servicios" class="py-12 px-6 bg-white reveal">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div class="group">
+                <i data-lucide="wifi" stroke-width="1" class="w-6 h-6 mx-auto mb-4 text-stone-400"></i>
+                <h3 class="text-xs uppercase tracking-widest font-bold mb-2">Wifi</h3>
+                <p class="text-stone-400 text-xs">Alta velocidad.</p>
+            </div>
+            <div class="group">
+                <i data-lucide="waves" stroke-width="1" class="w-6 h-6 mx-auto mb-4 text-stone-400"></i>
+                <h3 class="text-xs uppercase tracking-widest font-bold mb-2">Piscina</h3>
+                <p class="text-stone-400 text-xs">Infinity pool.</p>
+            </div>
+            <div class="group">
+                <i data-lucide="armchair" stroke-width="1" class="w-6 h-6 mx-auto mb-4 text-stone-400"></i>
+                <h3 class="text-xs uppercase tracking-widest font-bold mb-2">Lounge</h3>
+                <p class="text-stone-400 text-xs">Áreas de descanso.</p>
             </div>
         </div>
     </section>
 
-    <section id="servicios" class="py-16 px-6 bg-white reveal">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="flex flex-col items-center text-center group">
-                <div class="w-16 h-16 mb-4 flex items-center justify-center border border-stone-100 rounded-full group-hover:bg-stone-50 transition-colors">
-                    <i data-lucide="wifi" stroke-width="1" class="w-6 h-6 text-stone-600"></i>
-                </div>
-                <h3 class="text-xs uppercase tracking-[0.3em] font-bold mb-2">Conectividad</h3>
-                <p class="text-stone-400 font-light text-xs max-w-xs">Fibra óptica de alta velocidad en todo el recinto.</p>
+    <section id="habitaciones" class="py-10 px-6 bg-white reveal">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="space-y-6">
+                <div class="img-container overflow-hidden h-[350px]"><img src="img/7.webp" class="w-full h-full object-cover"></div>
+                <div class="img-container overflow-hidden h-[250px]"><img src="img/15.webp" class="w-full h-full object-cover"></div>
+                <div class="img-container overflow-hidden h-[250px]"><img src="img/14.webp" class="w-full h-full object-cover"></div>
             </div>
-            <div class="flex flex-col items-center text-center group">
-                <div class="w-16 h-16 mb-4 flex items-center justify-center border border-stone-100 rounded-full group-hover:bg-stone-50 transition-colors">
-                    <i data-lucide="waves" stroke-width="1" class="w-6 h-6 text-stone-600"></i>
-                </div>
-                <h3 class="text-xs uppercase tracking-[0.3em] font-bold mb-2">Infinity Pool</h3>
-                <p class="text-stone-400 font-light text-xs max-w-xs">Agua cristalina que se funde con el horizonte.</p>
+            <div class="space-y-6">
+                <div class="img-container overflow-hidden h-[250px]"><img src="img/8.webp" class="w-full h-full object-cover"></div>
+                <div class="img-container overflow-hidden h-[350px]"><img src="img/12.webp" class="w-full h-full object-cover"></div>
+                <div class="img-container overflow-hidden h-[250px]"><img src="img/13.webp" class="w-full h-full object-cover"></div>
             </div>
-            <div class="flex flex-col items-center text-center group">
-                <div class="w-16 h-16 mb-4 flex items-center justify-center border border-stone-100 rounded-full group-hover:bg-stone-50 transition-colors">
-                    <i data-lucide="armchair" stroke-width="1" class="w-6 h-6 text-stone-600"></i>
-                </div>
-                <h3 class="text-xs uppercase tracking-[0.3em] font-bold mb-2">Lounge Común</h3>
-                <p class="text-stone-400 font-light text-xs max-w-xs">Espacios de calma diseñados para el descanso.</p>
+            <div class="space-y-6">
+                <div class="img-container overflow-hidden h-[350px]"><img src="img/9.webp" class="w-full h-full object-cover"></div>
+                <div class="img-container overflow-hidden h-[250px]"><img src="img/10.webp" class="w-full h-full object-cover"></div>
+                <div class="img-container overflow-hidden h-[250px]"><img src="img/11.webp" class="w-full h-full object-cover"></div>
             </div>
         </div>
     </section>
 
-    <section id="habitaciones" class="py-12 px-6 bg-white reveal">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="space-y-4">
-                    <div class="group relative overflow-hidden h-[400px]">
-                        <img src="img/7.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <span class="text-white text-[10px] uppercase tracking-widest font-bold">Suite Superior</span>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden h-[300px]">
-                        <img src="img/15.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <div class="group relative overflow-hidden h-[300px]">
-                        <img src="img/8.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="group relative overflow-hidden h-[400px]">
-                        <img src="img/12.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <div class="group relative overflow-hidden h-[400px]">
-                        <img src="img/9.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="group relative overflow-hidden h-[300px]">
-                        <img src="img/10.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 bg-stone-50 text-center reveal">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-light mb-6 leading-tight">"El lujo es la <span class="serif-italic text-stone-400">eliminación</span> de lo innecesario."</h2>
-            <p class="text-stone-500 font-light italic">Aruma Suites: Silencio y materiales nobles frente al mar.</p>
-        </div>
-    </section>
-
-    <footer id="contacto" class="bg-white text-stone-900 pt-16 pb-12 px-6 border-t border-stone-100">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="text-3xl font-light tracking-[0.3em] uppercase mb-6 italic">Aruma<span class="text-stone-400 not-italic">.</span></div>
-            <p class="text-[9px] uppercase tracking-[0.3em] text-stone-400">© 2026 Aruma Suites Hotel</p>
-        </div>
+    <footer class="py-16 bg-white text-center border-t border-stone-100">
+        <div class="text-3xl font-light tracking-[0.3em] uppercase italic mb-4">Aruma<span class="text-stone-400 not-italic">.</span></div>
+        <p class="text-[9px] uppercase tracking-widest text-stone-400">© 2026 Aruma Suites Hotel</p>
     </footer>
 
     <script>
         lucide.createIcons();
-        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
             else navbar.classList.remove('nav-scrolled');
             document.querySelectorAll('.reveal').forEach(reveal => {
@@ -204,6 +130,18 @@
         });
         document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('hidden'));
         document.getElementById('menu-close').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    </script>
+
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69adc930811e1a1c36cff330/1jj7djpt6';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
     </script>
 </body>
 </html>
